@@ -7,3 +7,9 @@ QPushButton[class="grid-button"]{
 QPushButton[class="grid-button"]:hover{
     background-color: "#e7e7e7";
 }
+
+QPushButton[class="grid-button-ckecked"]{
+    border: 1px solid "#3e52c2";
+    background-color: "#dadada";
+    color: "#3e52c2";
+}
