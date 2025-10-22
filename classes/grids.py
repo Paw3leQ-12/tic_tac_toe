@@ -16,15 +16,21 @@ class MainGrid(QWidget):
                 button.setProperty("class", "grid-button")
                 button.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
                 button.setCursor(Qt.PointingHandCursor)
-                button.clicked.connect(lambda checked = False, btn = button: self.turn_off_button(btn))
+                button.clicked.connect(lambda
+                                       checked = False,
+                                       btn = button,
+                                       posX = row,
+                                       posY = column:
+                                       self.turn_off_button(btn, posX, posY))
                 layout.addWidget(button, row, column)
 
-    def turn_off_button(self, button: QPushButton):
+    def turn_off_button(self, button: QPushButton, posX, posY):
         button.setProperty("class", "grid-button-ckecked")
         button.style().unpolish(button)
         button.style().polish(button)
         button.update()
         self.gameLogic.switch_player()
+        self.gameLogic.insertValue(posX, posY)
         if self.gameLogic.currentPlayer == 0:
             button.setText("✕")
         else:
