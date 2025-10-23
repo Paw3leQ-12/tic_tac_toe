@@ -3,13 +3,13 @@ from PySide6.QtCore import Qt
 from gameLogic import GameLogic
 
 class MainGrid(QWidget):
-    def __init__(self):
+    def __init__(self, window, application):
         super().__init__()
         layout = QGridLayout()
         layout.setSpacing(0)
         self.setLayout(layout)
         self.setMinimumSize(450, 450)
-        self.gameLogic = GameLogic()
+        self.gameLogic = GameLogic(window, application)
         for row in range(3):
             for column in range(3):
                 button = QPushButton()
@@ -31,7 +31,7 @@ class MainGrid(QWidget):
         button.style().polish(button)
         button.update()
         self.gameLogic.switch_player()
-        self.gameLogic.insertValue(posX, posY)
+        self.gameLogic.insert_value(posX, posY)
         if self.gameLogic.currentPlayer == 0:
             button.setText("✕")
         else:

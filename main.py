@@ -20,7 +20,7 @@ class MainWindow(QMainWindow):
         centralWidget.setLayout(layout)
         self.setCentralWidget(centralWidget)
 
-        mainGrid = MainGrid()
+        mainGrid = MainGrid(self, app)
         
         layout.addWidget(mainGrid, alignment=Qt.AlignCenter)
 
