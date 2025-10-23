@@ -22,6 +22,7 @@ class MainGrid(QWidget):
                                        posX = row,
                                        posY = column:
                                        self.turn_off_button(btn, posX, posY))
+                self.gameLogic.boxes[row][column] = button
                 layout.addWidget(button, row, column)
 
     def turn_off_button(self, button: QPushButton, posX, posY):

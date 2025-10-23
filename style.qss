@@ -14,3 +14,10 @@ QPushButton[class="grid-button-ckecked"]{
     color: "#3e52c2";
     font-size: 50px;
 }
+
+QPushButton[class="grid-button-win"]{
+    border: 1px solid "#1c2869";
+    background-color: "#40a836";
+    color: "#dadada";
+    font-size: 50px;
+}
