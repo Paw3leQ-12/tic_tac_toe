@@ -19,8 +19,10 @@ class MainWindow(QMainWindow):
         centralWidget = QWidget()
         centralWidget.setLayout(layout)
         self.setCentralWidget(centralWidget)
+        self.statusBar().showMessage("Now playing: ○")
+        self.statusBar().setProperty("class", "status-bar")
 
-        mainGrid = MainGrid(self, app)
+        mainGrid = MainGrid(self, app, self.statusBar())
         
         layout.addWidget(mainGrid, alignment=Qt.AlignCenter)
 

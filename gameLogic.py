@@ -2,10 +2,11 @@ from PySide6.QtWidgets import QMessageBox
 from PySide6.QtCore import QTimer
 
 class GameLogic():
-    def __init__(self, window, application):
+    def __init__(self, window, application, statusBar):
         self.currentPlayer = 0
         self.window = window
         self.application = application
+        self.statusBar = statusBar
         self.boxesValues = [
             ["", "", ""],
             ["", "", ""],
@@ -17,11 +18,15 @@ class GameLogic():
             ["", "", ""],
             ["", "", ""]
         ]
+
     def switch_player(self):
         if self.currentPlayer == 0:
             self.currentPlayer = 1
+            self.statusBar.showMessage("Now playing: ✕")
         else:
             self.currentPlayer = 0
+            self.statusBar.showMessage("Now playing: ○")
+
 
     def insert_value(self, posX, posY):
         self.boxesValues[posX][posY] = str(self.currentPlayer)
@@ -111,3 +116,6 @@ class GameLogic():
                 box.update()
                 box.setEnabled(True)
                 box.setText("")
+        self.currentPlayer = 0
+        self.statusBar.showMessage("Now playing: ○")
+
