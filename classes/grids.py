@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QWidget, QGridLayout, QPushButton, QSizePolicy
 from PySide6.QtCore import Qt
-from gameLogic import GameLogic
+from classes.gameLogic import GameLogic
 
 class MainGrid(QWidget):
     def __init__(self, window, application, statusBar):
